@@ -1,0 +1,5 @@
+{
+    "services" : {
+        "es" : [ "es.r1.01.mydomain.com:9200" ]
+    }
+}
