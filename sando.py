@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import sys
 import argparse
 import json
@@ -26,7 +27,11 @@ def main(argv=None):
         		ctx = json.loads(context_file.read())
         ctx["os"] = os.environ
         template = Template(source_template)
-        print(template.render(**ctx))
+        if args.output:
+            with open(args.output, "w") as output_file:
+                output_file.write(template.render(**ctx))
+        else:
+            print(template.render(**ctx))
 
 if __name__ == "__main__":
     sys.exit(main())
